@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:07:55 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/22 16:19:30 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/22 21:43:45 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,25 @@ typedef struct s_philo
 	int				lfork;
 	unsigned long	last_eat;
 	unsigned long	death;
-	t_data			data;
 	pthread_t		thread;
 }				t_philo;
 
+typedef struct s_struct
+{
+	t_data			data;
+	t_philo			*philo;
+	pthread_mutex_t	mutex;
+	pthread_mutex_t	*forks;
+	int		id;
+}				t_struct;
+
 int				ft_error(char *str);
-void			init_data(char **av, t_philo *philo);
-void			init_philo(t_philo *philo);
+void			init_data(char **av, t_struct *st);
+void			init_philo(t_struct *st);
+void			init_mutex(t_struct *st);
 int				ft_atoi(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
-void			create_threads(t_philo *philo);
+void			create_threads(t_struct *st);
+unsigned long	get_time(void);
 
 #endif

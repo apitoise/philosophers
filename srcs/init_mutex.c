@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   init_mutex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/21 12:30:42 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/22 17:25:56 by apitoise         ###   ########.fr       */
+/*   Created: 2021/06/22 20:48:32 by apitoise          #+#    #+#             */
+/*   Updated: 2021/06/22 21:02:42 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/philo.h"
 
-void	init_data(char **av, t_struct *st)
+void	init_mutex(t_struct *st)
 {
-	st->data.philo_nb = ft_atoi(av[1]);
-	st->data.die_time = ft_atoi(av[2]);
-	st->data.eat_time = ft_atoi(av[3]);
-	st->data.sleep_time = ft_atoi(av[4]);
-	if (av[5])
-		st->data.eat_max = ft_atoi(av[5]);
-	else
-		st->data.eat_max = -1;
+	int	nbr;
+	int	i;
+	
+	nbr = st->data.philo_nb;
+	pthread_mutex_init(&st->mutex, NULL);
+	st->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * nbr);
+	i = 0;
+	while (i < nbr)
+	{
+		pthread_mutex_init(&st->forks[i], NULL);
+		i++;
+	}
 }

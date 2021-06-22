@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:07:13 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/22 16:12:03 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/22 21:03:10 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,14 @@ static int	check_arguments(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_philo	*philo;
+	t_struct	st;
 
 	if (check_arguments(ac, av))
 		return (ft_error("Bad arguments."));
-	philo = malloc(ft_atoi(av[1]) * sizeof(t_philo));
-	init_data(av, philo);
-	init_philo(philo);
-	create_threads(philo);
-	free(philo);
+	init_data(av, &st);
+	init_philo(&st);
+	init_mutex(&st);
+	create_threads(&st);
+	free(st.philo);
+	free(st.forks);
 }
