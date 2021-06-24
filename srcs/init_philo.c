@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:16:59 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/22 17:29:46 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/24 13:11:47 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	init_philo(t_struct *st)
 		st->philo[i].eat = 0;
 		st->philo[i].sleep = 0;
 		st->philo[i].think = 0;
+		st->philo[i].lfork_taken = 0;
+		st->philo[i].rfork_taken = 0;
 		i++;
 	}
 }

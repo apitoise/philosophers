@@ -6,7 +6,7 @@
 #    By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:02:10 by apitoise          #+#    #+#              #
-#    Updated: 2021/06/22 21:29:38 by apitoise         ###   ########.fr        #
+#    Updated: 2021/06/23 10:49:45 by apitoise         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ DIR_O = objs
 
 SRCS = srcs/main.c srcs/utils.c srcs/init_data.c srcs/error.c \
 		srcs/init_philo.c srcs/create_threads.c srcs/init_mutex.c \
-		srcs/get_time.c
+		srcs/get_time.c srcs/routine.c srcs/display_message.c
 
 OBJS = $(SRCS:.c=.o)
 
