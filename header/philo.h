@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:07:55 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/29 16:44:19 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:25:00 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void			create_threads(t_struct *st, t_philo *philo);
 unsigned long	get_time(void);
 void			routine(t_philo *this);
 void			display_message(t_philo *this, char *str);
+void			ft_exit(t_struct *st, t_philo *philo);
 
 #endif

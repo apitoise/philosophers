@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:07:13 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/29 15:57:11 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:25:33 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int	main(int ac, char **av)
 	philo = malloc(st.data.philo_nb * sizeof(t_philo));
 	init_philo(philo, st.data.philo_nb, &st);
 	create_threads(&st, philo);
-//	free(st.philo);
-//	free(st.forks);
+	ft_exit(&st, philo);
 }
