@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:36:34 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/22 12:35:20 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:40:01 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }
 
-
 int	ft_atoi(const char *str)
 {
 	unsigned long	res;
@@ -36,7 +35,7 @@ int	ft_atoi(const char *str)
 
 	pos = 0;
 	while (str[pos] == '\t' || str[pos] == '\n' || str[pos] == '\v'
-			|| str[pos] == '\f' || str[pos] == '\r' || str[pos] == ' ')
+		|| str[pos] == '\f' || str[pos] == '\r' || str[pos] == ' ')
 		pos++;
 	neg = 1;
 	if (str[pos] == '+' || str[pos] == '-')

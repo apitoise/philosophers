@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:42:51 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/29 15:59:14 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:39:44 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	take_forks(t_philo *this)
 
 void	routine(t_philo *this)
 {
-		take_forks(this);
-		eat(this);
-		is_sleeping(this);
+	take_forks(this);
+	eat(this);
+	is_sleeping(this);
 }

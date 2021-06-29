@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:56:33 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/29 16:48:19 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:40:56 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	monitor(t_philo *philo, t_struct *st)
 	return (0);
 }
 
-static void init_start(t_philo *this)
+static void	init_start(t_philo *this)
 {
 	this->last_eat = get_time() - this->st->start;
 	this->death = this->last_eat + this->st->data.die_time;
@@ -60,7 +60,7 @@ static void	*philo_routine(void *arg)
 {
 	t_philo		*this;
 	int			loop;
-	
+
 	loop = 0;
 	this = (t_philo *)arg;
 	init_start(this);
