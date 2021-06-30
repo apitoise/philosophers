@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:42:51 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/30 16:13:37 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:53:06 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	is_sleeping(t_philo *this)
 
 static int	eat(t_philo *this)
 {
-	this->last_eat = get_time() - this->st->start;
+	this->last_eat = get_time() - this->st->start + 10;
 	this->death = this->last_eat + this->st->data.die_time;
 	display_message(this, "is eating");
 	usleep(this->st->data.eat_time);

@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:56:33 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/30 16:45:47 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:54:31 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ static int	monitor(t_philo *philo, t_struct *st)
 		time = get_time() - st->start;
 		if (st->data.eat_max == philo[i].eat)
 			i++;
-		else if (time > philo[i].death + 10)
+		else if (time > philo[i].death)
 		{
 			pthread_mutex_lock(&st->print);
-			printf("%ld\t%d\tdie\n", time, philo[i].id);
+			printf("%ld\t%d\tdie\n", time - 10, philo[i].id);
 			return (1);
 		}
 		else
