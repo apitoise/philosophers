@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 20:48:32 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/30 16:14:00 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:39:38 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	init_st(t_struct *st, char **args)
 	while (i < nbr)
 	{
 		st->state[i] = 0;
-		st->last_owner[i] = -1;
+		if (i % 2 == 0)
+			st->last_owner[i] = -1;
+		else
+			st->last_owner[i] = i + 1;
 		pthread_mutex_init(&st->forks[i], NULL);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:56:33 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/30 16:01:03 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:45:47 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,13 @@ static void	init_start(t_philo *this)
 static void	*philo_routine(void *arg)
 {
 	t_philo		*this;
+	int			i;
 
+	i = 0;
 	this = (t_philo *)arg;
 	init_start(this);
-	while (!this->st->starter) ;
+	while (!this->st->starter)
+		i++;
 	while (1)
 	{
 		routine(this);
