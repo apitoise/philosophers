@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:07:55 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/30 14:01:56 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:10:25 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ typedef struct s_struct
 {
 	unsigned long	start;
 	int				*state;
+	int				*last_owner;
 	int				all_eat_max_reached;
 	t_data			data;
+	int				starter;
 	pthread_mutex_t	print;
 	pthread_mutex_t	*forks;
 	int				philo_dead;

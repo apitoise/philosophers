@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:56:33 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/30 14:17:43 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:01:03 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	monitor(t_philo *philo, t_struct *st)
 		time = get_time() - st->start;
 		if (st->data.eat_max == philo[i].eat)
 			i++;
-		else if (time > philo[i].death)
+		else if (time > philo[i].death + 10)
 		{
 			pthread_mutex_lock(&st->print);
 			printf("%ld\t%d\tdie\n", time, philo[i].id);
@@ -62,6 +62,7 @@ static void	*philo_routine(void *arg)
 
 	this = (t_philo *)arg;
 	init_start(this);
+	while (!this->st->starter) ;
 	while (1)
 	{
 		routine(this);
@@ -82,8 +83,12 @@ void	create_threads(t_struct *st, t_philo *philo)
 		{
 			pthread_create(&philo[i].thread, NULL, philo_routine, &philo[i]);
 			pthread_detach(philo[i].thread);
-			usleep(100000);
 			i++;
+			if (i == st->data.philo_nb)
+			{
+				st->starter = 1;
+				usleep(10000);
+			}
 		}
 		st->philo_dead = monitor(philo, st);
 		st->all_eat_max_reached = eat_monitor(philo, st);
