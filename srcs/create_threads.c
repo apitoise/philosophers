@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:56:33 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/29 17:40:56 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:17:43 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,14 @@ static void	init_start(t_philo *this)
 static void	*philo_routine(void *arg)
 {
 	t_philo		*this;
-	int			loop;
 
-	loop = 0;
 	this = (t_philo *)arg;
 	init_start(this);
-	while (!loop)
+	while (1)
 	{
 		routine(this);
 		if (this->st->data.eat_max == this->eat)
-		{
 			this->eat_max_reached = 1;
-			display_message(this, "max eat reached");
-			loop = 1;
-		}
 	}
 	return (NULL);
 }
@@ -88,10 +82,12 @@ void	create_threads(t_struct *st, t_philo *philo)
 		{
 			pthread_create(&philo[i].thread, NULL, philo_routine, &philo[i]);
 			pthread_detach(philo[i].thread);
-			usleep(10000);
+			usleep(100000);
 			i++;
 		}
 		st->philo_dead = monitor(philo, st);
 		st->all_eat_max_reached = eat_monitor(philo, st);
+		if (st->all_eat_max_reached == 1)
+			printf("%ld\tEAT MAX REACHED\n", get_time() - st->start);
 	}
 }

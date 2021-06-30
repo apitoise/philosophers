@@ -6,7 +6,7 @@
 /*   By: apitoise <apitoise@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:07:55 by apitoise          #+#    #+#             */
-/*   Updated: 2021/06/29 17:25:00 by apitoise         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:01:56 by apitoise         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct s_data
 	unsigned long	die_time;
 	unsigned long	sleep_time;
 	int				eat_max;
-	int				count;
 }				t_data;
 
 typedef struct s_struct
 {
 	unsigned long	start;
+	int				*state;
 	int				all_eat_max_reached;
 	t_data			data;
 	pthread_mutex_t	print;
